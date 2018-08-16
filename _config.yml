@@ -1,0 +1,8 @@
+name: LÖVE - Web Builder
+description: "Package, build and run LÖVE games for the web"
+markdown: kramdown
+paginate: 5
+permalink: /:title
+rss-feed-limit: 10
+rss-show-full: "no"
+with_toc_data: true

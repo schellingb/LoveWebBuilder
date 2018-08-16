@@ -1,0 +1,252 @@
+/* ------------------------------------------------------------------------
+-  Main background colors
+-------------------------------------------------------------------------*/
+.color-1 {background-color: #ea316e;} /* Title background */
+.color-2 {background-color: #25aae1;} /* Description background */
+.color-3 {background-color: #25aae1;} /* Main menu background */
+.color-5 {background-color: #b1e3fa;} /* other blocks (right side) */
+
+/* ------------------------------------------------------------------------
+-  The basics
+-------------------------------------------------------------------------*/
+html, body {
+	background-color: #e0f4fc;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	margin: 0;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+#wrapper {
+	min-height: 100%;
+	padding: 1px;
+	margin: 0 0 -22px;
+	box-sizing: border-box;
+}
+
+#footer, #push { height: 17px; }
+
+#footer {
+	clear: both;
+	color: #444;
+	font-size: 0.6em;
+	margin: 0;
+	padding: 2px 0;
+	text-align: center;
+	border-top: 1px dashed #77A;
+	background-color: rgb(177, 227, 250);
+	overflow-y: auto;
+}
+
+	#footer a {
+		color: #77A;
+		text-decoration: underline;
+	}
+
+a {
+	text-decoration: none;
+	-webkit-transition: color 0.25s ease-in, background 0.25s ease-in;
+	-moz-transition: color 0.25s ease-in, background 0.25s ease-in;
+	-o-transition: color 0.25s ease-in, background 0.25s ease-in;
+	transition: color 0.25s ease-in, background 0.25s ease-in;
+}
+
+p { line-height: 1.4; }
+
+.module {
+	margin: 0.5em;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid black;
+	border-radius: 10px;
+	box-shadow: 3px 3px 0 0 rgba(0,0,0,0.3);
+}
+
+/* ------------------------------------------------------------------------
+-  The header
+-------------------------------------------------------------------------*/
+.title h1 {
+	text-align: center;
+	margin: 0.8em;
+	color: #f5f5f5;
+}
+
+	.title a { color: #f5f5f5; }
+	.title a:hover, .main-header a:focus { color: #c1c1ff; text-decoration: underline; }
+
+.links a {
+	display: block;
+	color: #ddf;
+	text-align: center;
+	line-height: 1.8em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+	.links a:hover, .links a:active { color: #fff !important; text-decoration: underline; }
+
+/* ------------------------------------------------------------------------
+-  The content
+-------------------------------------------------------------------------*/
+.main-content {
+	padding: 0 1.5em;
+	margin-bottom: 20px;
+}
+
+	.main-content p, .main-content table {
+		margin: 1.5em 0;
+	}
+
+	.main-content a {
+		color: #526ffc;
+		border-bottom: .1px solid #526ffc;
+		display: inline;
+		padding: 0 0 .02em 0;
+	}
+
+	.main-content a:hover, .main-content p a:active {
+		color: #f2f2f2 !important;
+		background: #ea316e;
+		border: 0;
+	}
+
+	.main-content li { margin-left: 25px; }
+
+	.main-content hr {
+		border: 0;
+		background: #444;
+		height: 1px;
+		margin: 10px 0px;
+	}
+
+/* ------------------------------------------------------------------------
+-  Blockquote, code, pre
+-------------------------------------------------------------------------*/
+pre, code {
+	padding: 0.1em 0.3em;
+	word-wrap: break-word;
+	top: -1px;
+	position: relative;
+	background-color: #C0C0C040;
+}
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid #ccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 5px;
+	quotes: "\201C""\201D""\2018""\2019";
+}
+
+	blockquote:before {
+		color: #ccc;
+		content: open-quote;
+		font-size: 4em;
+		line-height: 0.1em;
+		margin-right: 0.25em;
+		vertical-align: -0.4em;
+	}
+
+	blockquote p { display: inline; }
+
+/* ------------------------------------------------------------------------
+-  Make things responsive
+-------------------------------------------------------------------------*/
+@media (max-width: 850px) {
+
+	body { font-size: large; }
+	.title h1 { margin: 0.4em; font-size: 1.5em; }
+}
+
+/* ------------------------------------------------------------------------
+-   Source code highlighting
+-------------------------------------------------------------------------*/
+.highlight {
+	background: #DDDDEA;
+	overflow: auto;
+	border: 1px solid #669;
+	border-radius: 10px;
+	box-shadow: 2px 2px 0 0 #99B;
+	padding: 0 0.4em;
+}
+.highlight pre { margin: 0 }
+.highlight code { padding: 0 }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+/* ------------------------------------------------------------------------
+-  Project Generator Form
+-------------------------------------------------------------------------*/
+table.tabheader { border-collapse:collapse; width:800px; margin:0 auto; }
+table.tabheader td { text-align:center; border:2px solid black; cursor:pointer; }
+td.activetab { border-bottom-color:#ddd!important; background-color:#ddd; }
+td.inactivetab { background-color:#888; }
+form#zip { width:800px; margin:0 auto; background:#DDD; padding:8px; border:2px solid black; border-top-width:0; font-size:80%; }
+form#zip a { color:#666; }
+form#zip h2 { font-size:14pt; font-family:sans-serif; text-align:center; background:#333; color:#FFF; margin-top:10px }
+form#zip div { clear:both; margin:3px 0; }
+form#zip label { float:left; width:180px; margin-right:10px; }
+form#zip span.txt { display:block; padding-left:190px; font-size:80%; color:#666; }
+form#zip span.chk { padding-left:10px; }
+form#zip label.ta { float:none; width:auto; display:block; margin-right:0; }
+form#zip textarea { width:99%; }
+form#zip .submit { margin:0 0 10px 0; padding:3px 10px; font-size:150%; }
+form#zip sub { display: block; color: #666; text-align: center; }

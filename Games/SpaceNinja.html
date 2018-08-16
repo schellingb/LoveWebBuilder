@@ -1,0 +1,94 @@
+---
+layout: base
+title: Space Ninja
+---
+<div id="wrapper">
+	<div class="module title color-1"><h1>Space Ninja</h1></div>
+	<div class="module main-content color-5" style="padding:15px 0">
+		<center style="margin-bottom:10px">Swing through gravitational pulls of stars and planets in this tricky action game! Part of <a href="https://ldjam.com/events/ludum-dare/42/space-ninja-1" target="_blank">Ludum Dare 42</a>.</center>
+		<div id="lv_container" style="background-color:black;width:1280px;height:720px;max-width:100%;margin:auto">
+			<table id="lv_table" style="width:100%;height:100%;margin:0" cellspacing="0" cellpadding="0" border="0"><tr valign="middle"><td align="center">
+				<div id="lv_error" style="display:none;background-color:#FFF;color:#000;padding:1.5em;width:640px;margin:2em auto"></div>
+				<div id="lv_status" style="font-size:1.5em;font-weight:bold;margin:1em;color:#888"><button id="lv_button" style="width:100%;max-width:300px;padding:50px;color:white" class="color-2">&nbsp;</button></div>
+				<div id="lv_progress" style="display:none;width:100%;max-width:300px;height:24px;background-color:#FFF;border:2px solid #1497ce;"><div style="float:left;width:0;height:100%;background:linear-gradient(to right,#72d3ff,#a2d4ea);"></div></div>
+			</td></tr></table>
+		</div>
+	</div>
+	<div id="push"></div>
+</div>
+<div id="footer">&copy; Team Ham Cheese Mayo &middot; Made using the <a href="https://love2d.org/" target="_blank">LÖVE Framework</a> &middot; Packaged using <a href="https://schellingb.github.io/LoveWebBuilder/" target="_blank">LÖVE Web Builder</a></div>
+<script type="text/javascript">(function(){
+var TXT =
+{
+	PLAYBTN: 'Click here to launch the game',
+	LOAD:    'Downloading Game',
+	PARSE:   'Preparing Game',
+	LAUNCH:  'Launching Game',
+	DLERROR: 'Error while downloading game data.<br>Check your internet connection.',
+	NOWEBGL: 'Your browser or graphics card does not seem to support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation" style="color:#000">WebGL</a>.<br>Find out how to get it <a href="http://get.webgl.org/" style="color:#000">here</a>.',
+};
+var ebi = function(i) { return document.getElementById(i); };
+var container = ebi('lv_container'), button = ebi('lv_button'), status = ebi('lv_status'), table = ebi('lv_table'), error = ebi('lv_error'), progress = ebi('lv_progress'), progressbar = progress.firstElementChild;
+var max_width = Math.min(container.clientWidth, container.parentElement.clientWidth);
+container.style.width = (max_width)+"px";
+container.style.height = (max_width*9/16)+"px";
+button.innerHTML = TXT.PLAYBTN;
+button.onclick = function()
+{
+	status.innerHTML = TXT.LOAD;
+	progress.style.display = 'block';
+	var ShowError = function(msg) { status.outerHTML = progress.outerHTML = ''; status = progress = null; error.style.display = 'block'; error.innerHTML = msg; };
+	var xhr1, xhr2;
+	var UpdateProgress = function()
+	{
+		if (!progress) return;
+		progressbar.style.width = Math.min((xhr1.loaded+xhr2.loaded)/(xhr1.total+xhr2.total),1)*100+'%';
+	};
+	var OnLoaded = function()
+	{
+		if (xhr1.readyState != 4 || xhr2.readyState != 4) return;
+		status.innerHTML = TXT.PARSE;
+		progress.style.display = 'none';
+		window.setTimeout(function()
+		{
+			Module = { TOTAL_STACK: 1024*1024*2, TOTAL_MEMORY: 1024*1024*20, currentScriptUrl: '-' };
+			var Parse = function(xhr)
+			{
+				var s = document.createElement('script'), d = document.documentElement;
+				s.textContent = xhr.response;
+				d.appendChild(s);
+				d.removeChild(s);
+				s = xhr.response = s.textContent = null;
+			};
+			Parse(xhr1); xhr1 = null;
+			Parse(xhr2); xhr2 = null;
+			Module.canvas = document.createElement('canvas');
+			Module.canvas.style.cssText = 'max-width:100%;font-family:sans-serif';
+			Module.canvas.oncontextmenu = function(e) { e.preventDefault() };
+			Module.canvas.width = Module.canvas.height = 0;
+			Module.setWindowTitle = function(title) { };
+			Module.postRun = function()
+			{
+				if (!Module.noExitRuntime) { ShowError(TXT.NOWEBGL); return; }
+				container.appendChild(Module.canvas);
+				container.style.cssText = 'text-align:center;line-height:0';
+				table.parentElement.removeChild(table)
+			};
+			status.innerHTML = TXT.LAUNCH;
+			window.setTimeout(function() { Module.run(['/']); }, 50);
+		},50);
+	};
+	var LoadJS = function(url)
+	{
+		var xhr = new XMLHttpRequest();
+		xhr.loaded = xhr.total = 0;
+		xhr.open('GET', url);
+		xhr.onprogress = function(e) { if (e.lengthComputable) { xhr.loaded = e.loaded; xhr.total = e.total; UpdateProgress(); } };
+		xhr.onerror = xhr.onabort = function() { ShowError(TXT.DLERROR); };
+		xhr.onload = function() { if (xhr.status != 200) ShowError(TXT.DLERROR + '<br>Status: ' + xhr.statusText ); else OnLoaded(); };
+		return xhr;
+	};
+	(xhr1 = LoadJS('../love.js')).send();
+	(xhr2 = LoadJS('SpaceNinja.js')).send();
+};
+})()</script>
