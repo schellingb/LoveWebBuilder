@@ -3,6 +3,72 @@ layout: default
 title: Package Your Game
 ---
 <h2>Package Your Game</h2>
-<p>Use this to upload your project and get a shiny deployable HTML5 page.</p>
+<p>Use this to package your project and get a shiny deployable HTML5 page.</p>
+<p>If you encounter issues, take a look at the <a href="./#hints">hints section on the top page</a>.</p>
 
-<h3>Coming Soon</h3>
+<hr>
+
+<div id="tool">
+
+<h2>File Selection</h2>
+<div>
+<label for="add_assets" class="ta">Load .LOVE file or multiple scripts and assets:  <input id="file" type="file" multiple></label>
+</div>
+
+<h2>Build Settings</h2>
+<div>
+<label for="mode">Output Mode:</label>
+<select id="mode">
+<option value="double_progress">Two files (HTML+JS) with loading progress bar (only runs when uploaded to web)</option>
+<option value="double_local">Two files (HTML+JS) without loading progress bar (also runs when opened from local file)</option>
+<option value="single">Single HTML file (one big file)</option>
+</select> 
+</div>
+
+<h2>Page Settings</h2>
+<div>
+<label for="filename">Filename:</label>
+<input id="filename" size="80" placeholder="game">
+<sub class="info">(will be used as the file name and to reference the second file)</sub>
+</div>
+<div>
+<label for="title">Title:</label>
+<input id="title" size="80">
+<sub class="info">(just shown on page)</sub>
+</div>
+<div>
+<label for="description">Description:</label>
+<input id="description" size="80">
+<sub class="info">(shown below the title and above the player, can contain HTML)</sub>
+</div>
+<div>
+<label for="author">Author:</label>
+<input id="author" size="80">
+<sub class="info">(shown in the page footer)</sub>
+</div>
+<div>
+<label for="res_x">Initial Player Resolution:</label>
+<input id="res_x" size="10" type="number" value="800"> x
+<input id="res_y" size="10" type="number" value="600">
+<sub class="info">(should match the window size after game startup)</sub>
+</div>
+
+<h2>Player Settings</h2>
+<div>
+<label for="memory">Memory Size:</label>
+<input id="memory" size="10" type="number" value="24"> MB
+<sub class="info">(depending on complexity of project)</sub>
+</div>
+<div>
+<label for="stack">Stack Size:</label>
+<input id="stack" size="10" type="number" value="2"> MB
+<sub class="info">(the default should run most LOVE projects fine)</sub>
+</div>
+
+<h2>Generate</h2>
+<div align="center"><button id="build" class="submit" style="height:100px;width:300px" disabled>Build Package<div id="step" style="display:none"></div><progress id="progress" style="display:none"></progress></button></div>
+<sub class="wide">This tool runs locally in pure JavaScript, it does not upload to any server.</sub>
+
+</div>
+
+<script type="text/javascript" src="package.js"></script>

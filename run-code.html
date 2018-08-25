@@ -4,5 +4,58 @@ title: Write and Execute Code
 ---
 <h2>Write and Execute Code</h2>
 <p>An easy way to test the web player with a single LUA file.</p>
+<p>If you encounter issues, take a look at the <a href="./#hints">hints section on the top page</a>.</p>
 
-<h3>Coming Soon</h3>
+<hr>
+
+<div id="tool">
+
+<h2>Code</h2>
+<div>
+<textarea id="code" style="height:250px;font-size:9pt;tab-size:4;-moz-tab-size:4;">
+function love.draw()
+	love.graphics.printf("Hello World!", 0, 300, love.graphics.getWidth(), 'center')
+	love.graphics.printf(
+		string.format("Time: %f - FPS: %f\nOS: %s Ver: %d.%d.%d\nScreen: %d x %d",
+			love.timer.getTime(), love.timer.getFPS(),
+			love.system.getOS(), love._version_major, love._version_minor, love._version_revision,
+			love.graphics.getWidth(), love.graphics.getHeight()
+		), love.graphics.getWidth() - 305, 3, 300, 'right')
+end</textarea>
+<sub class="wide">Press CTRL+Enter to run while editing code</sub>
+</div>
+
+<h2>Load Example</h2>
+<div>
+<select id="example" style="width:100%">
+</select> 
+</div>
+
+<h2>Player Settings</h2>
+<div>
+<label for="memory">Memory Size:</label>
+<input id="memory" size="40" type="number" value="24"> MB
+<sub class="info">(depending on complexity of project)</sub>
+</div>
+<div>
+<label for="stack">Stack Size:</label>
+<input id="stack" size="40" type="number" value="2"> MB
+<sub class="info">(the default should run most LOVE projects fine)</sub>
+</div>
+
+<h2>Run</h2>
+<iframe id="frame" style="border:0;width:1px;height:1px;background-color:transparent;position:absolute;"></iframe>
+<div align="center"><button id="run" class="submit" disabled>Run</button></div>
+<sub class="wide">This tool runs locally in pure JavaScript, it does not upload to any server.</sub>
+
+</div>
+
+<div style="display:none;margin-top:10px" align="center">
+<div id="gametitle" style="border:2px ridge yellow;border-bottom:0;display:table-cell;padding:0 50px;background:black;color:white;">-</div>
+<canvas id="canvas" class="gameview" width="800" height="600"></canvas>
+<div><button id="pause" class="gamebutton" disabled>Pause</button><button id="fullscreen" class="gamebutton" disabled>Fullscreen</button><button id="clearlog" class="gamebutton">Clear Log</button></div>
+<div id="log" style="width:800px;height:400px;overflow-y:scroll;font-size:10pt;text-align:left;padding:5px;border:1px solid black;background-color:rgba(255,255,255,.5)"><div style="border-bottom:1px dashed gray">Log messages:</div></div>
+</div>
+
+<script type="text/javascript" src="run.js"></script>
+<script type="text/javascript" src="examples.js"></script>

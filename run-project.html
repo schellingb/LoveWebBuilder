@@ -2,7 +2,43 @@
 layout: default
 title: Run a .LOVE File
 ---
-<h2>Run a .LOVE File</h2>
+<h2>Run a LÖVE Project</h2>
 <p>Here you can directly run your project on the web player and check compatiblity.</p>
+<p>If you encounter issues, take a look at the <a href="./#hints">hints section on the top page</a>.</p>
 
-<h3>Coming Soon</h3>
+<hr>
+
+<div id="tool">
+
+<h2>File Selection</h2>
+<div>
+<label for="add_assets" class="ta">Load .LOVE file or multiple scripts and assets:  <input id="file" type="file" multiple></label>
+</div>
+
+<h2>Player Settings</h2>
+<div>
+<label for="memory">Memory Size:</label>
+<input id="memory" size="40" type="number" value="24"> MB
+<sub class="info">(depending on complexity of project)</sub>
+</div>
+<div>
+<label for="stack">Stack Size:</label>
+<input id="stack" size="40" type="number" value="2"> MB
+<sub class="info">(the default should run most LOVE projects fine)</sub>
+</div>
+
+<h2>Run</h2>
+<iframe id="frame" style="border:0;width:1px;height:1px;background-color:transparent;position:absolute;"></iframe>
+<div align="center"><button id="run" class="submit" disabled>Run</button></div>
+<sub class="wide">This tool runs locally in pure JavaScript, it does not upload to any server.</sub>
+
+</div>
+
+<div style="display:none;margin-top:10px" align="center">
+<div id="gametitle" style="border:2px ridge yellow;border-bottom:0;display:table-cell;padding:0 50px;background:black;color:white;">-</div>
+<canvas id="canvas" class="gameview" width="800" height="600"></canvas>
+<div><button id="pause" class="gamebutton" disabled>Pause</button><button id="fullscreen" class="gamebutton" disabled>Fullscreen</button><button id="clearlog" class="gamebutton">Clear Log</button></div>
+<div id="log" style="width:800px;height:400px;overflow-y:scroll;font-size:10pt;text-align:left;padding:5px;border:1px solid black;background-color:rgba(255,255,255,.5)"><div style="border-bottom:1px dashed gray">Log messages:</div></div>
+</div>
+
+<script type="text/javascript" src="run.js"></script>

@@ -1,4 +1,4 @@
-name: LÖVE - Web Builder
+name: LÖVE Web Builder
 description: "Package, build and run LÖVE games for the web"
 markdown: kramdown
 paginate: 5
