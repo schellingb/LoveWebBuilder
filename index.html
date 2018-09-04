@@ -24,6 +24,7 @@ The available Love.js build is based on version 0.11.1 (a pre-release of the fin
 <li>Test your game thoroughly to ensure that the selected amount of memory is enough. It might only crash in some rare case, adding a few MB over the minimal amount is advised.</li>
 <li><a href="http://luajit.org/ext_ffi.html">FFI</a> is not supported so the libraries used by the LÖVE3D projects are not working</li>
 <li>Support for threading on the web seemed barely working, very unstable and cumbersome so I had to disabled it. This means LUA threads and audio sources with type 'stream' are not working.</li>
+<li>The seek function for sound sources is not implemented</li>
 <li>Shaders can behave different (or not work at all) depending on the browser. Also shaders that work on desktop OpenGL can easily not work in the WebGL context.</li>
 <li>Some TTF fonts that work on desktop platforms are not supported and can give weird error messages like 'cursors not supported' or 'function' when they are being used. <a href="http://www.dsg4.com/04/extra/bitmap/index.html">These pixel-fonts</a> work fine.</li>
 </p>
