@@ -294,7 +294,7 @@ self.onmessage = function(e)
 		html += '		<center><canvas id="canvas" width="'+b.res_x+'" height="'+b.res_y+'" style="max-width:100%;background:#000;vertical-align:middle"></canvas></center>'+nl;
 		html += '	</div>'+nl;
 		html += '</div>'+nl;
-		html += '<div id="footer">'+(b.author ? '&copy; '+b.author+' &middot; ' : '')+'Made using the <a href="https://love2d.org/" target="_blank">LÖVE Framework</a> (<a href="https://bitbucket.org/rude/love/raw/default/license.txt" target="_blank">License</a>) &middot; Packaged using <a href="https://schellingb.github.io/LoveWebBuilder/" target="_blank">LÖVE Web Builder</a></div>'+nl;
+		html += '<div id="footer">'+(b.author ? '&copy; '+b.author+' &middot; ' : '')+'Made using the <a href="https://love2d.org/" target="_blank">LÖVE Framework</a> (<a href="https://raw.githubusercontent.com/love2d/love/main/license.txt" target="_blank">License</a>) &middot; Packaged using <a href="https://schellingb.github.io/LoveWebBuilder/" target="_blank">LÖVE Web Builder</a></div>'+nl;
 		html += '<scr'+'ipt type="text/javascript">(function(){'+nl;
 		html += "var TXT ="+nl;
 		html += "{"+nl;
